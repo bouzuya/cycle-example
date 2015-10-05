@@ -1,0 +1,11 @@
+<!doctype html
+<html
+  @lang ja
+  <head
+    <title
+      cycle.js example
+  <body
+    <div
+      @id app
+    <script
+      @src main.js
