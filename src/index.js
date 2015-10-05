@@ -1,23 +1,30 @@
 import Cycle from '@cycle/core';
 import {makeDOMDriver, h} from '@cycle/dom';
 
-let main = function(drivers) {
+let intent = function(DOM) {
   return {
-    DOM: drivers.DOM.select('input').events('click')
-      .map(e => e.target.checked)
-      .startWith(false)
-      .map(toggled =>
-        h('div', [
-          h('input', { type: 'checkbox' }),
-          'Toggle me',
-          h('p', toggled ? 'ON': 'off')
-        ])
-      )
-  }
+    toggle: DOM.select('input').events('click').map(e => e.target.checked)
+  };
 };
 
-let drivers = {
+let model = function(actions) {
+  return actions.toggle.startWith(false);
+};
+
+let view = function(stateStream) {
+  return stateStream.map(toggled =>
+    h('div', [
+      h('input', { type: 'checkbox' }),
+      'Toggle me',
+      h('p', toggled ? 'ON': 'off')
+    ])
+  );
+};
+
+let main = function({ DOM }) {
+  return { DOM: view(model(intent(DOM))) };
+};
+
+Cycle.run(main, {
   DOM: makeDOMDriver('#app')
-};
-
-Cycle.run(main, drivers);
+});
