@@ -6,8 +6,8 @@ import view from './view';
 import labeledSlider from './widgets/labeled-slider';
 
 Cycle.run(
-  ({ DOM }) => {
-    return { DOM: view(model(intent(DOM))) };
+  (responses) => {
+    return { DOM: view(model(intent(responses))) };
   },
   {
     DOM: makeDOMDriver('#app', {

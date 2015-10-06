@@ -1,9 +1,13 @@
-export default function(DOM) {
+// responses -> actions
+
+import changeHeight from './intents/change-height';
+import changeWeight from './intents/change-weight';
+import toggle from './intents/toggle';
+
+export default function(responses) {
   return {
-    changeHeight: DOM.select('#height').events('input')
-      .map(e => e.target.value),
-    changeWeight: DOM.select('#weight').events('input')
-      .map(e => e.target.value),
-    toggle: DOM.select('input').events('click').map(e => e.target.checked)
+    changeHeight: changeHeight(responses),
+    changeWeight: changeWeight(responses),
+    toggle: toggle(responses)
   };
 }
