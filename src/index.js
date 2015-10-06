@@ -21,10 +21,11 @@ let view = function(stateStream) {
   );
 };
 
-let main = function({ DOM }) {
-  return { DOM: view(model(intent(DOM))) };
-};
-
-Cycle.run(main, {
-  DOM: makeDOMDriver('#app')
-});
+Cycle.run(
+  ({ DOM }) => {
+    return { DOM: view(model(intent(DOM))) };
+  },
+  {
+    DOM: makeDOMDriver('#app')
+  }
+);
