@@ -2,8 +2,10 @@ import {h} from '@cycle/dom';
 
 function renderHeightSlider(height) {
   return h('div', [
-    'Height ' + height + 'cm',
-    h('input#height', { type: 'range', min: 140, max: 210, value: height })
+    h('labeled-slider#height', {
+      key: 1, label: 'Height', unit: 'cm',
+      min: 140, max: 210, initial: height
+    })
   ]);
 }
 
