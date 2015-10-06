@@ -1,25 +1,8 @@
 import Cycle from '@cycle/core';
-import {makeDOMDriver, h} from '@cycle/dom';
-
-const intent = function(DOM) {
-  return {
-    toggle: DOM.select('input').events('click').map(e => e.target.checked)
-  };
-};
-
-const model = function(actions) {
-  return actions.toggle.startWith(false);
-};
-
-const view = function(stateStream) {
-  return stateStream.map(toggled =>
-    h('div', [
-      h('input', { type: 'checkbox' }),
-      'Toggle me',
-      h('p', toggled ? 'ON': 'off')
-    ])
-  );
-};
+import {makeDOMDriver} from '@cycle/dom';
+import intent from './intent';
+import model from './model';
+import view from './view';
 
 Cycle.run(
   ({ DOM }) => {
