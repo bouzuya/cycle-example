@@ -1,10 +1,13 @@
 import {Rx} from '@cycle/core';
+import height from './models/height';
+import weight from './models/weight';
+import toggled from './models/toggled';
 
 export default function(actions) {
   return Rx.Observable.combineLatest(
-    actions.changeHeight.startWith(170),
-    actions.changeWeight.startWith(70),
-    actions.toggle.startWith(false),
+    height(actions),
+    weight(actions),
+    toggled(actions),
     (height, weight, toggled) =>
       ({ height, weight, toggled })
   );
