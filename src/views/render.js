@@ -32,13 +32,18 @@ function renderFetchButton() {
   ]);
 }
 
+function renderPosts(posts) {
+  return h('div', posts);
+}
+
 export default function(state$) {
-  return state$.map(({ height, weight, toggled }) =>
+  return state$.map(({ height, weight, toggled, posts }) =>
     h('div', [
       renderHeightSlider(height),
       renderWeightSlider(weight),
       renderToggleCheckBox(toggled),
-      renderFetchButton()
+      renderFetchButton(),
+      renderPosts(posts)
     ])
   );
 }
