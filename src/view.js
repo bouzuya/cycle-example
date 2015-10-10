@@ -25,11 +25,13 @@ function renderToggleCheckBox(toggled) {
 }
 
 export default function(stateStream) {
-  return stateStream.map(({ height, weight, toggled }) =>
-    h('div', [
-      renderHeightSlider(height),
-      renderWeightSlider(weight),
-      renderToggleCheckBox(toggled)
-    ])
-  );
+  return {
+    DOM: stateStream.map(({ height, weight, toggled }) =>
+      h('div', [
+        renderHeightSlider(height),
+        renderWeightSlider(weight),
+        renderToggleCheckBox(toggled)
+      ])
+    )
+  };
 }
