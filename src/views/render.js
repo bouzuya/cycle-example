@@ -24,12 +24,21 @@ function renderToggleCheckBox(toggled) {
   ]);
 }
 
+function renderFetchButton() {
+  return h('div', [
+    h('button#fetch', [
+      'fetch'
+    ])
+  ]);
+}
+
 export default function(state$) {
   return state$.map(({ height, weight, toggled }) =>
     h('div', [
       renderHeightSlider(height),
       renderWeightSlider(weight),
-      renderToggleCheckBox(toggled)
+      renderToggleCheckBox(toggled),
+      renderFetchButton()
     ])
   );
 }
