@@ -18,7 +18,7 @@ function renderWeightSlider(weight) {
 
 function renderToggleCheckBox(toggled) {
   return h('div', [
-    h('input', { type: 'checkbox' }),
+    h('input#toggle', { type: 'checkbox' }),
     'Toggle me',
     h('p', toggled ? 'ON': 'off')
   ]);
