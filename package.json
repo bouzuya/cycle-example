@@ -41,7 +41,6 @@
   "dependencies": {
     "@cycle/core": "^3.1.0",
     "@cycle/dom": "^5.3.1",
-    "@cycle/http": "^4.0.0",
     "@r7kamura/cycle-fetcher-driver": "0.0.3"
   }
 }
