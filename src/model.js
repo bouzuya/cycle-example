@@ -8,7 +8,6 @@ export default function(actions) {
     height(actions),
     weight(actions),
     toggled(actions),
-    (height, weight, toggled) =>
-      ({ height, weight, toggled })
+    (...args) => Object.assign(...args)
   );
 }
