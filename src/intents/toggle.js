@@ -1,4 +1,5 @@
 export default function({ DOM }) {
-  return DOM.select('input').events('click')
+  const toggle = DOM.select('input').events('click')
     .map(e => e.target.checked);
+  return { toggle };
 }

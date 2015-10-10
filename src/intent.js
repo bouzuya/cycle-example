@@ -6,8 +6,8 @@ import toggle from './intents/toggle';
 
 export default function(responses) {
   return {
-    changeHeight: changeHeight(responses),
-    changeWeight: changeWeight(responses),
-    toggle: toggle(responses)
+    ...changeHeight(responses),
+    ...changeWeight(responses),
+    ...toggle(responses)
   };
 }
