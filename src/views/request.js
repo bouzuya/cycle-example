@@ -2,7 +2,7 @@ import { Rx } from '@cycle/core';
 
 export default function(state$) {
   return state$
-    .map(({ requests }) => requests)
+    .map(({ request }) => request)
     .filter(i => i)
     .map(() => {
       return {

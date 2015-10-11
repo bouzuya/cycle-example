@@ -2,7 +2,7 @@ import {Rx} from '@cycle/core';
 import height from './models/height';
 import weight from './models/weight';
 import toggled from './models/toggled';
-import requests from './models/requests';
+import request from './models/request';
 import posts from './models/posts';
 
 export default function(actions) {
@@ -10,7 +10,7 @@ export default function(actions) {
     height(actions),
     weight(actions),
     toggled(actions),
-    requests(actions),
+    request(actions),
     posts(actions),
     (...args) => Object.assign(...args)
   );
