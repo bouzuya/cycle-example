@@ -9,7 +9,7 @@ describe 'intents/change-height', ->
       DOM: mockDOMResponse
         '#height':
           'input': Rx.Observable.just(target: { value: '123' })
-    action = changeHeight(responses)
-    action.first().subscribe (x) ->
+    actions = changeHeight(responses)
+    actions.changeHeight.first().subscribe (x) ->
       assert x is '123'
       done()

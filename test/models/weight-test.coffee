@@ -9,5 +9,5 @@ describe 'models/weight', ->
       changeWeight: Rx.Observable.just(70)
     state$ = weight(actions)
     state$.first().subscribe (x) ->
-      assert x is 70
+      assert x.weight is 70
       done()
