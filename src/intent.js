@@ -1,5 +1,3 @@
-// responses -> actions
-
 import changeHeight from './intents/change-height';
 import changeWeight from './intents/change-weight';
 import toggle from './intents/toggle';
