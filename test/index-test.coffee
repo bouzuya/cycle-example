@@ -133,4 +133,29 @@ describe 'Rx.Observable', ->
     done()
     null
 
-  #
+  # Rx.Observable.throw
+  #   https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/throw.md
+  it 'throw -> subscribe', (done) ->
+    Rx.Observable
+      .throw(new Error('hoge'))
+      .subscribe ->
+        assert.fail()
+      , (e) ->
+        assert e.message is 'hoge'
+        done()
+      , ->
+        assert.fail()
+    null
+
+  # Rx.Observable.range
+  #   https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/range.md
+  # Rx.Observable.prototype.filter
+  #   https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/where.md
+  it 'range -> filter -> subscribe', ->
+    Rx.Observable
+      .range 1, 10
+      .filter (i) ->
+        i % 2 is 0
+      .reduce ((a, i) -> a.concat([i])), []
+      .subscribe (a) ->
+        assert.deepEqual a, [2, 4, 6, 8, 10]
