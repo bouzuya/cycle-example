@@ -6,6 +6,13 @@ import request from './models/request';
 import posts from './models/posts';
 
 export default function(actions) {
+  // {
+  //   height: Number;
+  //   weight: Number;
+  //   toggled: boolean;
+  //   request: { url: String; method: String };
+  //   posts: Array<{ title }>;
+  // }
   return Rx.Observable.combineLatest(
     height(actions),
     weight(actions),
