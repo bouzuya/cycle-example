@@ -1,5 +1,6 @@
 export default function({ changePosts }) {
   return changePosts
-    .startWith('Loading...')
+    .map(posts => JSON.parse(posts))
+    .startWith([])
     .map(posts => ({ posts }));
 }

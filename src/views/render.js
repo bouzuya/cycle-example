@@ -33,7 +33,11 @@ function renderFetchButton() {
 }
 
 function renderPosts(posts) {
-  return h('div', posts);
+  return h('ul.posts', posts.map(({ title }) => {
+    return h('li.post', [
+      h('span.title', title)
+    ]);
+  }));
 }
 
 export default function(state$) {
